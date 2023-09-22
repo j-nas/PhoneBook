@@ -8,8 +8,9 @@ internal class PhonebookContext : DbContext
 {
     private static readonly IConfigurationRoot Config = new ConfigurationBuilder()
         .SetBasePath(Directory.GetCurrentDirectory())
-        .AddJsonFile("appsettings.json")
+        .AddUserSecrets<Program>()
         .Build();
+    
     
     
     public DbSet<Contact> Contacts { get; set; }
