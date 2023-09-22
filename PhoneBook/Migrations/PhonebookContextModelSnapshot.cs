@@ -45,9 +45,6 @@ namespace PhoneBook.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ContactId"));
 
-                    b.Property<int>("CategoryId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
 
@@ -59,25 +56,7 @@ namespace PhoneBook.Migrations
 
                     b.HasKey("ContactId");
 
-                    b.HasIndex("CategoryId");
-
                     b.ToTable("Contacts");
-                });
-
-            modelBuilder.Entity("PhoneBook.Models.Contact", b =>
-                {
-                    b.HasOne("PhoneBook.Models.Category", "Category")
-                        .WithMany("Contacts")
-                        .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Category");
-                });
-
-            modelBuilder.Entity("PhoneBook.Models.Category", b =>
-                {
-                    b.Navigation("Contacts");
                 });
 #pragma warning restore 612, 618
         }

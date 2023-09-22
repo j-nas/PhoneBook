@@ -35,8 +35,7 @@ internal static class ContactController
     internal static Contact GetContactById(int id)
     {
         using var db = new PhonebookContext();
-        var contact = db.Contacts.Include(x => x.Category)
-            .SingleOrDefault(x => x.ContactId == id);
+        var contact = db.Contacts.SingleOrDefault(x => x.ContactId == id);
 
         return contact;
     }

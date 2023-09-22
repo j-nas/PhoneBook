@@ -11,8 +11,8 @@ using PhoneBook;
 namespace PhoneBook.Migrations
 {
     [DbContext(typeof(PhonebookContext))]
-    [Migration("20230921034807_descriptive_id")]
-    partial class descriptive_id
+    [Migration("20230922031848_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

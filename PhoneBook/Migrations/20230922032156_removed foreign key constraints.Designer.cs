@@ -11,8 +11,8 @@ using PhoneBook;
 namespace PhoneBook.Migrations
 {
     [DbContext(typeof(PhonebookContext))]
-    [Migration("20230921025806_Initial")]
-    partial class Initial
+    [Migration("20230922032156_removed foreign key constraints")]
+    partial class removedforeignkeyconstraints
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -26,26 +26,38 @@ namespace PhoneBook.Migrations
 
             modelBuilder.Entity("PhoneBook.Models.Category", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("CategoryId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CategoryId"));
 
-                    b.HasKey("Id");
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("CategoryId");
 
                     b.ToTable("Categories");
                 });
 
             modelBuilder.Entity("PhoneBook.Models.Contact", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("ContactId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ContactId"));
 
-                    b.HasKey("Id");
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Phone")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ContactId");
 
                     b.ToTable("Contacts");
                 });

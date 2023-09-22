@@ -1,3 +1,4 @@
+using PhoneBook.Services;
 using Spectre.Console;
 using static PhoneBook.Enums;
 
@@ -35,7 +36,7 @@ internal static class UserInterface
                     ContactService.SearchContacts();
                     break;
                 case MainMenuOptions.AddContact:
-                    ContactService.AddContact();
+                    ContactService.InsertContact();
                     break;
                 case MainMenuOptions.Quit:
                     isAppRunning = false;
