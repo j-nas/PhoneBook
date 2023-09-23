@@ -5,8 +5,14 @@ internal static class Enums
     internal enum MainMenuOptions
     {
         ListContacts,
-        SearchContacts,
         AddContact,
         Quit
+    }
+
+    internal enum ContactOptions
+    {
+        UpdateContact,
+        DeleteContact,
+        GoBack
     }
 }

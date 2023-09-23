@@ -26,7 +26,7 @@ internal static class ContactController
         db.SaveChanges();
     }
 
-    internal static List<Contact> ListContacts()
+    internal static List<Contact> GetContacts()
     {
         using var db = new PhonebookContext();
         return db.Contacts.ToList();
@@ -35,8 +35,9 @@ internal static class ContactController
     internal static Contact GetContactById(int id)
     {
         using var db = new PhonebookContext();
-        var contact = db.Contacts.SingleOrDefault(x => x.ContactId == id);
+        var contact = db.Contacts.Single(x => x.ContactId == id);
 
         return contact;
     }
+
 }
